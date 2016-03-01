@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'CourseMatter.apps.CoursematterConfig',
     'CourseList.apps.CourselistConfig',
     'People.apps.PeopleConfig',
     'Mail.apps.MailConfig',

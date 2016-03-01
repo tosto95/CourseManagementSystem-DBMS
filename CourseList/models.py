@@ -17,6 +17,6 @@ class CourseList(models.Model):
 
 class StudentRegistration(models.Model):
 	studentID=models.ForeignKey(Student, on_delete=models.SET_NULL, null = True)
-	courseID=models.ForeignKey(CourseList, on_delete = models.CASCADE)
+	courseID=models.ForeignKey(CourseList, on_delete=models.SET_NULL, null = True)
 
 		
