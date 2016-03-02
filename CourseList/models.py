@@ -9,14 +9,18 @@ from django.utils import timezone
 
 class CourseList(models.Model):
 	courseID=models.AutoField(primary_key = True)
-	courseName=models.CharField(max_length=100)
+	courseName=models.CharField('Course Name' , max_length=100)
 	startDate=models.DateTimeField('Start Date')
 	endDate=models.DateTimeField('End Date')
-	faculty1=models.ForeignKey(Faculty, on_delete=models.SET_NULL, null = True, related_name="%(app_label)s_%(class)s_related")
-	faculty2=models.ForeignKey(Faculty, on_delete=models.SET_NULL, null = True)
+	faculty =models.ForeignKey(Faculty, on_delete=models.SET_NULL, null = True)
+	def __str__(self):
+		return str(self.courseID)
 
 class StudentRegistration(models.Model):
 	studentID=models.ForeignKey(Student, on_delete=models.SET_NULL, null = True)
-	courseID=models.ForeignKey(CourseList, on_delete=models.SET_NULL, null = True)
-
-		
+	courseID=models.ForeignKey(CourseList, on_delete=models.CASCADE, null = True)
+	grade = models.CharField('Grade',max_length = 100, null = True)
+	progress = models.CharField('Progress',max_length = 100, null = True)
+	def __str__(self):
+		return str(self.studentID)
+	

@@ -14,7 +14,7 @@ class Student(models.Model):
 	studentUserName = models.CharField('Login Username',max_length = 100)
 	studentPassword = models.CharField('Login Password',max_length = 100)
 	def __str__(self):
-		return self.studentID
+		return str(self.studentID)
 
 class Faculty(models.Model):
 	facultyID = models.AutoField(primary_key = True)
@@ -25,7 +25,7 @@ class Faculty(models.Model):
 	facultyUserName = models.CharField('Login Username',max_length = 100)
 	facultyPassword = models.CharField('Login Password',max_length = 100)
 	def __str__(self):
-		return self.facultyID
+		return str(self.facultyID)
 
 class Parent(models.Model):
 	parentID = models.AutoField(primary_key = True)
@@ -34,7 +34,7 @@ class Parent(models.Model):
 	parentUserName = models.CharField('Login Username',max_length = 100)
 	parentPassword = models.CharField('Login Password',max_length = 100)
 	def __str__(self):
-		return self.parentID
+		return str(self.parentID)
 
 class Admin(models.Model):
 	adminID = models.AutoField(primary_key = True)
@@ -43,10 +43,10 @@ class Admin(models.Model):
 	adminUserName = models.CharField('Login Username',max_length = 100)
 	adminPassword = models.CharField('Login Password',max_length = 100)
 	def __str__(self):
-		return self.adminID
+		return str(self.adminID)
 
 
-class Student_Parent(models.Model):
+class StudentParent(models.Model):
 	studentID = models.ForeignKey(Student, on_delete = models.CASCADE)
 	parentID = models.ForeignKey(Parent, on_delete = models.CASCADE)
 
